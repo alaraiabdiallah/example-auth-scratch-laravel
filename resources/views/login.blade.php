@@ -8,7 +8,7 @@
 <div class="col-md-4 mx-auto my-5">
     <div class="card">
         <div class="card-body">
-            <form method="{{ route("do.login") }}" method="POST">
+            <form action="{{ route("do.login") }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
