@@ -40,6 +40,10 @@
                             <div id="passwordConfirmationHelp" class="form-text">{{ $message }}</div>
                         @enderror
                     </div>
+                    <p>
+                        Sudah punya akun?
+                        <a href="{{ route('login') }}">silakan login.</a>
+                    </p>
                     <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
