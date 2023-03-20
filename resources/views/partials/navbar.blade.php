@@ -14,16 +14,23 @@
           </li>
         </ul>
         <ul class="navbar-nav d-flex">
+          @auth
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Nama User
+                {{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Setting</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
               </ul>
             </li>
+          @endauth
+          @guest
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">Login</a>
+          </li>
+          @endguest
           </ul>
       </div>
     </div>

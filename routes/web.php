@@ -22,8 +22,19 @@ Route::get('/home', function () {
     return view('home');
 });
 
+Route::middleware(['auth:web'])->group(function () {
+    Route::get('/about', function () {
+        return view('welcome');
+    });
+    
+    Route::get('/home2', function () {
+        return view('home');
+    });
+});
+
 Route::get('/register', [AuthController::class, "register"])->name('register');
 Route::get('/login', [AuthController::class, "login"])->name('login');
+Route::get('/logout', [AuthController::class, "logout"])->name('logout');
 
 Route::post('/register', [AuthController::class, "doRegister"])->name('do.register');
 Route::post('/login', [AuthController::class, "doLogin"])->name('do.login');
