@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,13 +24,8 @@ Route::get('/home', function () {
 });
 
 Route::middleware(['auth:web'])->group(function () {
-    Route::get('/about', function () {
-        return view('welcome');
-    });
-    
-    Route::get('/home2', function () {
-        return view('home');
-    });
+    Route::get('/user/profile', [UserController::class, 'edit'])->name('profile.edit');
+    Route::put('/user/profile', [UserController::class, 'update'])->name('profile.update');
 });
 
 Route::get('/register', [AuthController::class, "register"])->name('register');
